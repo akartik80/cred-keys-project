@@ -29,8 +29,8 @@ class InMemory < MemoryStrategy
       next Rails.logger.error("Strategy #{strategy} not present") unless strategy_class.present?
 
       values.each do |value|
-        validated = (value_types[value.first] == value.second.class || value_types[value.first] == nil)
-        # validated = strategy_class.perform(value.second, value.)
+        # validated = (value_types[value.first] == value.second.class || value_types[value.first] == nil)
+        validated = strategy_class.perform(value.first, value.second, value_types)
         return false unless validated
       end
     end

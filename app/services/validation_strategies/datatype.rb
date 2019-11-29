@@ -1,9 +1,7 @@
 module ValidationStrategies
   class Datatype < BaseValidationStrategy
-    def perform(subject, list)
-      return true if ValidationStrategies::Uniqueness.new.perform(subject, list.keys)
-      debugger
-      list[subject] == subject.class
+    def perform(first, second, value_types)
+      value_types[first] == nil || value_types[first] == second.class
     end
   end
 end

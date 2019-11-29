@@ -14,6 +14,10 @@ class KeyService
     memory.find(key)
   end
 
+  def destroy(key)
+    memory.destroy(key)
+  end
+
   private
 
   attr_accessor :key, :memory
